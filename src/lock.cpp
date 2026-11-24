@@ -287,6 +287,14 @@ public:
                   << std::fixed << std::setprecision(1) << ms << " ms\n";
     }
 
+    // ─────────────────────────────────────────────────────────────
+    // Main Integrated Lock Simulation Pipeline:
+    // 1. Telemetry Snapshot: Update rolling contention index (MD-ACC)
+    // 2. Ingest Arrivals: Verify Havender ascending order & attempt lock acquisition
+    // 3. Waiting Queue Servicing: Evaluate bounded timeout (Tw) vs retry eligibility
+    // 4. Critical Section Execution: Decrement burst cycles & update hold durations
+    // 5. Termination & Commit: Release all locks simultaneously (Strict 2PL)
+    // ─────────────────────────────────────────────────────────────
     // Run the complete integrated lock simulation
     LockSimulationStats run() {
         std::cout << "\n  Executing Lock Simulation [" << stats_.mode_label << "]...\n";
