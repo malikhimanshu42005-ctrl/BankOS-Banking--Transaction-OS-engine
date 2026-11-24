@@ -306,6 +306,14 @@ public:
         }
     }
 
+    // ─────────────────────────────────────────────────────────────
+    // Waiting Pool Servicing & Backoff Arbitration:
+    // 1. Backoff Countdown: Decrement remaining backoff ticks for delayed transactions
+    // 2. Timeout Evaluation: Check bounded wait timeout (Tw) against lock manager
+    // 3. Retry Arbitration: Reschedule with adaptive backoff or abort upon exceeding max retries
+    // 4. Monotonic Lock Re-acquisition: Attempt non-blocking acquisition of locks
+    // 5. Queue Re-entry: Re-insert successful processes into MLFQ READY state
+    // ─────────────────────────────────────────────────────────────
     // ── Waiting Pool Processing ────────────────────────────────
     void process_waiting_pool() {
         auto it = waiting_pool_.begin();
