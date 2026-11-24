@@ -1,3 +1,9 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<div style="font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6;">
+
 # Adaptive Bank OS
 
 > **An OS-kernel-inspired banking transaction simulator that processes 176,000 concurrent transactions using adaptive scheduling, ML-driven contention prediction, and ACID-compliant storage — all visualized through a real-time web dashboard.**
@@ -444,3 +450,5 @@ This generates synthetic banking stream data across three traffic regimes (UPI e
 ## License
 
 This project is provided for educational and research purposes.
+
+</div>
