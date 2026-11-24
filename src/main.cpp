@@ -73,6 +73,14 @@ int main(int argc, char* argv[]) {
         }
     });
 
+    // ─────────────────────────────────────────────────────────────
+    // REST API & Mission Control Endpoint Routing:
+    // - Telemetry & Metrics: /api/status, /api/state, /api/queues
+    // - Audit & Ledger Streams: /api/transitions, /api/accounts, /api/wal
+    // - DB Transmission & Export: /api/bank-db-log, /api/export
+    // - Dynamic Mode & Benchmark: /api/comparison-mode, /api/benchmark/trigger
+    // - Execution Speed & Clock: /api/control/pause, resume, speed
+    // ─────────────────────────────────────────────────────────────
     // Configure HTTP Web Server
     httplib::Server svr;
     svr.set_mount_point("/", "./web");
