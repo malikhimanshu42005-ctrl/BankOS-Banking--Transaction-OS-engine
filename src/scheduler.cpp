@@ -133,6 +133,9 @@ struct SchedulerStats {
 
 // ─────────────────────────────────────────────────────────────
 // Standalone Scheduler Engine
+// Orchestrates multi-level feedback queue scheduling, anti-starvation aging,
+// strict two-phase locking (2PL) via Havender's monotonic resource ordering,
+// MD-ACC adaptive backoff middleware, and ACID Write-Ahead Logging (WAL).
 // ─────────────────────────────────────────────────────────────
 
 class SchedulerEngine {
@@ -198,6 +201,14 @@ public:
     }
 
     // ── Main Scheduling Loop ───────────────────────────────────
+    // Executes tick-driven OS kernel lifecycle:
+    // 1. Advance queue wait times
+    // 2. Perform anti-starvation aging promotions (Q2 -> Q1)
+    // 3. Dispatch arrivals from workload generator
+    // 4. Awaken expired backoff processes in waiting pool
+    // 5. MLFQ CPU dispatch (Q1 SRTF preemption + Q2 Round Robin)
+    // 6. Havender monotonic lock acquisition and conflict handling
+    // 7. ACID debit/credit storage commit or rollback
     void run() {
         std::cout << "═══════════════════════════════════════════════════════════\n";
         std::cout << "  ADAPTIVE BANK OS — STANDALONE SCHEDULER ENGINE\n";
