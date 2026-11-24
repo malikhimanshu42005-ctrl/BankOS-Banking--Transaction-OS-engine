@@ -212,7 +212,7 @@ The ACID-compliant storage engine ([`include/mysql_storage.hpp`](include/mysql_s
 - **Write-Ahead Logging (WAL)**: PREPARE → DEBIT → CREDIT → COMMIT sequence with monotonic sequence numbers
 - **Atomicity**: Failed debits/credits trigger full rollback with balance restoration
 - **Insufficient funds detection**: Transactions against low-balance accounts are rolled back with descriptive failure reasons
-- **Balance tracking**: In-memory balance map seeded from initial account configuration
+- **Balance tracking**: In-memory balanced map seeded from initial account configuration
 
 ### Workload Generator
 
