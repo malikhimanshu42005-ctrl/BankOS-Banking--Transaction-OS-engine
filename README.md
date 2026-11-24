@@ -183,7 +183,7 @@ The lock manager ([`include/lock_manager.hpp`](include/lock_manager.hpp)) provid
 
 - **Deadlock prevention** via Havender's Principle — locks are always acquired in strictly ascending account-ID order
 - **Atomic try-lock**: All-or-nothing acquisition; partial locks are rolled back on conflict
-- **Bounded wait timeout (Tw)**: Processes exceeding `Tw` ticks in WAITING state are aborted or retried with exponential backoff
+- **Bounded wait timeout (Tw)**: Processes exceeding `Tw` ticks in WAITING state are aborted or retried with exponential backof
 
 ### MD-ACC Middleware
 
