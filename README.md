@@ -194,7 +194,7 @@ The Multi-Dimensional Adaptive Concurrency Control middleware ([`include/middlew
 - **Threshold-based contention levels**: `HIGH` (CR ≥ 0.40 or AR ≥ 0.25 or QL ≥ 35), `MEDIUM`, `LOW`
 - **Hysteresis gate** (5-tick debounce) to prevent high-frequency level oscillation
 - **Dynamic token bucket** for rate limiting
-- **Adaptive exponential backoff**: Backoff duration scales with contention level; disabled in baseline mode to demonstrate abort storms
+- **Adaptive exponential backoff**: Backoff duration scales with contention level; disabled in baseline mode to demonstrate abort storms.
 
 ### ML Contention Predictor
 
