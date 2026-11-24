@@ -198,7 +198,7 @@ The Multi-Dimensional Adaptive Concurrency Control middleware ([`include/middlew
 
 ### ML Contention Predictor
 
-A lightweight Temporal Convolutional Network ([`include/ml/contention_predictor.hpp`](include/ml/contention_predictor.hpp)):
+A lightweight Temporal Convolutional Network, ([`include/ml/contention_predictor.hpp`](include/ml/contention_predictor.hpp)):
 
 - **Architecture**: 2-layer 1D ConvNet (6→8 channels, kernel 3, dilation 1) → (8→4 channels, kernel 3, dilation 2) → Dense(4→1) → Sigmoid
 - **Input**: Sliding window of 8 timesteps × 6 telemetry features
