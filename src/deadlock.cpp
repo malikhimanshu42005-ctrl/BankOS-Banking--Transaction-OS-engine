@@ -106,6 +106,10 @@ struct DeadlockAuditStats {
 
 // ─────────────────────────────────────────────────────────────
 // Deadlock Prevention Simulation Engine
+// Benchmarks and validates the 3 classical deadlock handling paradigms:
+// 1. Prevention (Havender's Monotonic Ordering Protocol + All-or-Nothing Try-Lock)
+// 2. Avoidance (Dijkstra's Banker's Algorithm with Safe State Sequence Testing)
+// 3. Detection & Recovery (Wait-For Graph DFS Cycle Detection + Victim Preemption)
 // ─────────────────────────────────────────────────────────────
 
 class DeadlockPreventionEngine {
@@ -135,6 +139,9 @@ private:
     // Trace of detected deadlocks for reporting
     std::vector<DeadlockCycle> recorded_deadlocks_;
 
+    // Lock acquisition arbitrator:
+    // - Under Havender's protocol: Enforces strict ascending lock acquisition and atomic rollback.
+    // - Under Naive 2PL: Simulates partial lock acquisition without rollback, inducing Hold & Wait and deadlocks.
     bool try_acquire(int pid, const std::vector<int>& locks, int& conflict_acc, int& conflict_pid) {
         if (enforce_havender_) {
             return lock_manager_.try_acquire_locks(pid, locks, conflict_acc, conflict_pid);
