@@ -229,6 +229,7 @@ public:
                 // Prepare lock acquisition order
                 std::vector<int> target_locks = proc->required_locks;
 
+
                 if (enforce_havender_) {
                     // HAVENDER PROTOCOL: Sort in strict ascending order
                     target_locks = HavenderProtocol::enforce_monotonic_order(target_locks);
