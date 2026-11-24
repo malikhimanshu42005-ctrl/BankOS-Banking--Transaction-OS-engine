@@ -174,7 +174,7 @@ Each transaction is encapsulated in a `PCB` struct ([`include/pcb.hpp`](include/
 The scheduler ([`include/mlfq_scheduler.hpp`](include/mlfq_scheduler.hpp)) implements a two-level MLFQ:
 
 - **Queue 1 (High Priority)**: Shortest Remaining Time First (SRTF) for interactive UPI/ATM transactions. Preempts Q2 jobs and shorter-burst Q1 jobs.
-- **Queue 2 (Low Priority)**: Round Robin with configurable quantum for batch Salary transactions. Quantum is dynamically compressed by the ML quota manager under high contention.
+- **Queue 2 (Low Priority)**: RR with configurable quantum for batch Salary transactions. Quantum is dynamically compressed by the ML quota manager under high contention.
 - **Anti-Starvation Aging**: Salary transactions waiting ≥ `X` ticks in Q2 are promoted to Q1 to prevent indefinite starvation.
 
 ### Lock Manager
