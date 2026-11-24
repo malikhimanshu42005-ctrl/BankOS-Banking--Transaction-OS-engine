@@ -152,6 +152,10 @@ struct LockSimulationStats {
 
 // ─────────────────────────────────────────────────────────────
 // Wait-For Graph (WFG) & Formal Deadlock-Freedom Verifier
+// Continuously constructs the directed resource allocation graph (Waiter -> Holder)
+// and runs cycle detection (DFS with 3-color graph coloring).
+// Under Havender's monotonic resource ordering (Acc_A < Acc_B), all edges point
+// along a total order, mathematically proving cycle freedom (0 deadlocks).
 // ─────────────────────────────────────────────────────────────
 
 class WaitForGraphVerifier {
@@ -220,6 +224,9 @@ private:
 
 // ─────────────────────────────────────────────────────────────
 // Lock Integration Engine
+// Executes tick-driven lock arbitration, Havender ascending acquisition,
+// all-or-nothing rollback on conflict, bounded wait timeout expiration (Tw),
+// MD-ACC adaptive backoff calculation, and ACID balance validation.
 // ─────────────────────────────────────────────────────────────
 
 class LockIntegrationEngine {
