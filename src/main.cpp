@@ -1,3 +1,18 @@
+/**
+ * main.cpp — Primary Entry Point for Adaptive Bank OS Server
+ *
+ * Spawns the tick-driven kernel simulation worker thread and hosts the
+ * embedded REST API web server (httplib) delivering real-time telemetry,
+ * PCB queue status, 2PL lock states, ACID WAL stream, and live benchmark controls.
+ *
+ * Build:
+ *   clang++ -std=c++17 -O2 -pthread -I include src/main.cpp -o bank_os_server
+ *
+ * Usage:
+ *   ./bank_os_server                      # defaults: port 8080, 176k transactions
+ *   ./bank_os_server --port 9090 --workload 50000
+ */
+
 #include <iostream>
 #include <thread>
 #include <chrono>
