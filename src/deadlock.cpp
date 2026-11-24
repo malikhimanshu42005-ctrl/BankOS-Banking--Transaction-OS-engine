@@ -260,6 +260,7 @@ public:
                     acquired = try_acquire(proc->pid, proc->required_locks, conflict_acc, conflict_pid);
                 }
 
+
                 if (acquired) {
                     stats_.first_try_grants++;
                     proc->state = ProcessState::RUNNING;
