@@ -76,7 +76,8 @@ struct DeadlockAuditStats {
     long long total_conflicts = 0;
     long long rollbacks_hold_wait = 0;
 
-    // Deadlock detection & graph metrics
+
+ // Deadlock detection & graph metrics
     long long wfg_cycle_checks = 0;
     long long wfg_cycles_found = 0;
     long long victims_preempted = 0;
