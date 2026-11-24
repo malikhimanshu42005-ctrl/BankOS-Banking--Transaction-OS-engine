@@ -45,7 +45,7 @@
 
 ## Overview
 
-Adaptive Bank OS models a high-throughput banking switch as an operating system kernel. Each financial transaction (UPI, ATM, Salary) is represented as a **process** with a full lifecycle — creation, scheduling, lock acquisition, CPU execution, ACID commit/rollback, and termination — mirroring the `NEW → READY → RUNNING → WAITING → TERMINATED` state machine of a real OS.
+Adaptive Bank OS models a high-throughput banking switch as an operating system kernel. Each financial transaction (UPI, ATM, Salary) is represented as a **process** with a full lifecycle — creation, scheduling, lock acquisition, CPU execution, ACID commit/rollback, and termination — mirroring the `NEW → READY → RUNNING → WAITING → TERMINATED` state machine of a real Operating System.
 
 The system generates **176,000 transactions** with realistic burst patterns, schedules them through a **Multi-Level Feedback Queue (MLFQ)**, manages concurrent account access via **deadlock-free lock ordering**, and dynamically adapts to contention using an embedded **Temporal Convolutional Network (TCN)** for real-time contention prediction.
 
