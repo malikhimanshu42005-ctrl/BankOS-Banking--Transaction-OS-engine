@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS Transactions (
 ) ENGINE=InnoDB;
 
 -- 3. Write-Ahead Log (WAL) Table
+
 CREATE TABLE IF NOT EXISTS WriteAheadLog (
     LogID INT AUTO_INCREMENT PRIMARY KEY,
     SequenceNumber BIGINT NOT NULL UNIQUE,
