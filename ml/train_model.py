@@ -13,6 +13,7 @@ import sys
 
 def generate_synthetic_bank_stream(num_samples=2000):
     """
+
     Features (6 features):
       0: Conflict Rate (0.0 to 1.0)
       1: Abort Rate (0.0 to 1.0)
