@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS Accounts (
 ) ENGINE=InnoDB;
 
 -- 2. Transactions Table
+
 CREATE TABLE IF NOT EXISTS Transactions (
     TransactionID INT AUTO_INCREMENT PRIMARY KEY,
     PID INT NOT NULL,
